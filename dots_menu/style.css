@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.menu {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  background-color: #555;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  transition-delay: 0.8s;
+}
+
+.menu span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgb(143, 143, 143);
+  color: white;
+  transform: translate(calc(12px * var(--x)), calc(12px * var(--y)));
+  transition: transform 0.5s, width 0.5s, height 0.5s, background 0.5s;
+  transition-delay: calc(0.1s * var(--i));
+}
+
+.menu span ion-icon {
+  display: none;
+}
+
+.menu.active {
+  width: 210px;
+  height: 210px;
+  transition-delay: 0s;
+}
+
+.menu.active span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  transform: translate(calc(60px * var(--x)), calc(60px * var(--y)));
+}
+
+.menu.active span ion-icon {
+  display: block;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.menu.active span:hover ion-icon {
+  color: greenyellow;
+  filter: drop-shadow(0 0 10px greenyellow);
+}

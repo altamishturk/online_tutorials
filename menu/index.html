@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>menu</title>
+</head>
+
+<body>
+    <nav class="menu">
+        <div class="profile-pic">
+            <div class="pic-box">
+                <img src="img.jpg" alt="">
+            </div>
+            <p>Altamish</p>
+        </div>
+        <div class="nav-toggle"></div>
+        <div class="menu-items">
+            <li>
+                <ion-icon name="person-circle-outline"></ion-icon><a href="#">Profile</a>
+            </li>
+            <li>
+                <ion-icon name="notifications-outline"></ion-icon><a href="#">Notifications</a>
+            </li>
+            <li>
+                <ion-icon name="settings-outline"></ion-icon><a href="#">Settings</a>
+            </li>
+            <li>
+                <ion-icon name="information-circle-outline"></ion-icon><a href="#">Help & Support</a>
+            </li>
+            <li>
+                <ion-icon name="log-out-outline"></ion-icon><a href="#">Logout</a>
+            </li>
+        </div>
+    </nav>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        let menuToggle = document.querySelector('.menu .nav-toggle');
+        let menu = document.querySelector('.menu');
+        menuToggle.addEventListener('click', e => {
+            menu.classList.toggle('active');
+        })
+    </script>
+</body>
+
+</html>
