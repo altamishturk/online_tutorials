@@ -20,6 +20,7 @@ body {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   transition: 0.5s;
+  overflow: hidden;
 }
 
 .menu.close {
@@ -28,6 +29,7 @@ body {
 
 .menu.close ul li a .text {
   display: none;
+  transition: 0.5s;
 }
 
 .menu ul {
@@ -100,6 +102,7 @@ body {
   color: rgb(214, 214, 214);
   display: flex;
   justify-content: flex-start;
+  transition: 0.5s;
 }
 
 .menu ul li.active a {
@@ -109,6 +112,7 @@ body {
 .menu ul li a ion-icon {
   margin-right: 40px;
   font-size: 2em;
+  transition: 0.5s;
 }
 
 .menu.close ul li a ion-icon {
@@ -125,10 +129,11 @@ body {
   background-color: rgb(26, 22, 83);
   position: absolute;
   bottom: 18px;
-  right: -15px;
+  right: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #555;
 }
 
 .toggle ion-icon {
