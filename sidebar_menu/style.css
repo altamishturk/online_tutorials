@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 300px;
+  height: 95vh;
+  background-color: rgb(26, 22, 83);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: 0.5s;
+}
+
+.menu.close {
+  width: 85px;
+}
+
+.menu.close ul li a .text {
+  display: none;
+}
+
+.menu ul {
+  margin: 40px 0px;
+  margin-left: 5px;
+  list-style-type: none;
+}
+
+.menu ul li {
+  margin-bottom: 20px;
+  padding: 15px 0px;
+  padding-left: 20px;
+  position: relative;
+  transition: 0.5s;
+}
+
+.menu ul li.active {
+  background-color: rgb(255, 255, 255);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.menu ul li.active .topBox {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  right: 0;
+  background-color: rgb(255, 255, 255);
+  transition: 0.5s;
+}
+.menu ul li.active .bottomBox {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  bottom: -10px;
+  right: 0;
+  background-color: rgb(255, 255, 255);
+  transition: 0.5s;
+}
+
+.menu ul li.active::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  right: 0;
+  background-color: rgb(26, 22, 83);
+  z-index: 100;
+  border-bottom-right-radius: 10px;
+  transition: 0.5s;
+}
+
+.menu ul li.active::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  bottom: -10px;
+  right: 0;
+  background-color: rgb(26, 22, 83);
+  z-index: 100;
+  border-top-right-radius: 10px;
+  transition: 0.5s;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: rgb(214, 214, 214);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.menu ul li.active a {
+  color: #555;
+}
+
+.menu ul li a ion-icon {
+  margin-right: 40px;
+  font-size: 2em;
+}
+
+.menu.close ul li a ion-icon {
+  margin-right: 0;
+}
+
+.menu ul li a .text {
+  font-size: 1.5em;
+}
+
+.toggle {
+  width: 15px;
+  height: 25px;
+  background-color: rgb(26, 22, 83);
+  position: absolute;
+  bottom: 18px;
+  right: -15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle ion-icon {
+  transform: rotate(90deg);
+  font-size: 1.5em;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.menu.close .toggle {
+  transform: rotate(180deg);
+}

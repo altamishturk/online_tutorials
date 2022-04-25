@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Drop Down Menu </title>
+</head>
+
+<body>
+
+    <nav class="menu close">
+
+        <ul>
+            <li class="list ">
+                <span class="topBox"></span>
+                <span class="bottomBox"></span>
+                <a href="#">
+                    <ion-icon name="home-outline"></ion-icon>
+
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="list active">
+                <span class="topBox"></span>
+                <span class="bottomBox"></span>
+                <a href="#">
+                    <ion-icon name="person-outline"></ion-icon>
+
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li class="list">
+                <span class="topBox"></span>
+                <span class="bottomBox"></span>
+                <a href="#">
+                    <ion-icon name="notifications-outline"></ion-icon>
+
+                    <span class="text">Massages</span>
+                </a>
+            </li>
+            <li class="list">
+                <span class="topBox"></span>
+                <span class="bottomBox"></span>
+                <a href="#">
+                    <ion-icon name="settings-outline"></ion-icon>
+
+                    <span class="text">Setting</span>
+                </a>
+            </li>
+            <li class="list">
+                <span class="topBox"></span>
+                <span class="bottomBox"></span>
+                <a href="#">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+
+                    <span class="text">Help</span>
+                </a>
+            </li>
+            <li class="list">
+                <span class="topBox"></span>
+                <span class="bottomBox"></span>
+                <a href="#">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+
+                    <span class="text">Password</span>
+                </a>
+            </li>
+            <li class="list">
+                <span class="topBox"></span>
+                <span class="bottomBox"></span>
+                <a href="#">
+                    <ion-icon name="log-out-outline"></ion-icon>
+
+                    <span class="text">Lot Out</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="toggle">
+            <ion-icon name="chevron-down-outline"></ion-icon>
+        </div>
+    </nav>
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        let list = document.querySelectorAll('.list');
+
+        function activeLink() {
+            list.forEach(item => {
+                item.classList.remove('active');
+            })
+
+            this.classList.add('active');
+        }
+
+
+        list.forEach(item => {
+            item.addEventListener('click', activeLink)
+        })
+
+
+        let toggle = document.querySelector('.toggle');
+        let menu = document.querySelector('.menu');
+
+        toggle.addEventListener('click', () => menu.classList.toggle('close'));
+    </script>
+
+</body>
+
+</html>
