@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Digital Clock</title>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="circle" style="--clr:pink">
+            <div class="dots hr_dot"></div>
+            <svg>
+                <circle cx='70' cy='70' r='70'></circle>
+                <circle cx='70' cy='70' r='70' id="hp"></circle>
+            </svg>
+            <div class="hours">12</div>
+        </div>
+
+        <div class="circle" style="--clr:yellow">
+            <div class="dots mi_dot"></div>
+            <svg>
+                <circle cx='70' cy='70' r='70'></circle>
+                <circle cx='70' cy='70' r='70' id="mp"></circle>
+            </svg>
+            <div class="minutes">02</div>
+        </div>
+
+        <div class="circle " style="--clr:red">
+            <div class="dots se_dot"></div>
+            <svg>
+                <circle cx='70' cy='70' r='70'></circle>
+                <circle cx='70' cy='70' r='70' id="sp"></circle>
+            </svg>
+            <div class="seconds">05</div>
+        </div>
+
+        <div class="am_pm">
+
+        </div>
+    </div>
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+
+        let hours = document.querySelector('.hours');
+        let minutes = document.querySelector('.minutes');
+        let seconds = document.querySelector('.seconds');
+
+        function setDate() {
+            let date = new Date();
+
+            let hoursToDisplay = date.getHours();
+            let minutesToDisplay = date.getMinutes();
+            let secondsToDisplay = date.getSeconds();
+
+            let apm = document.querySelector('.am_pm');
+            let am_pm = hoursToDisplay > 11 ? "PM" : "AM";
+            apm.innerHTML = am_pm;
+
+
+            hoursToDisplay = hoursToDisplay < 10 ? "0" + hoursToDisplay : hoursToDisplay;
+            minutesToDisplay = minutesToDisplay < 10 ? "0" + minutesToDisplay : minutesToDisplay;
+            secondsToDisplay = secondsToDisplay < 10 ? "0" + secondsToDisplay : secondsToDisplay;
+
+            hoursToDisplay = hoursToDisplay > 12 ? hoursToDisplay - 12 : hoursToDisplay;
+
+            hours.innerHTML = hoursToDisplay + "<br/><span>Hour</span>";
+            minutes.innerHTML = minutesToDisplay + "<br/><span>Minutes</span>";
+            seconds.innerHTML = secondsToDisplay + "<br/><span>Seconds</span>";
+
+            let hp = document.getElementById('hp');
+            let mp = document.getElementById('mp');
+            let sp = document.getElementById('sp');
+
+            hp.style.strokeDashoffset = 440 - ((hoursToDisplay * 440) / 12);
+            mp.style.strokeDashoffset = 440 - ((minutesToDisplay * 440) / 60);
+            sp.style.strokeDashoffset = 440 - ((secondsToDisplay * 440) / 60);
+
+            let hr_dot = document.querySelector('.hr_dot');
+            let mi_dot = document.querySelector('.mi_dot');
+            let se_dot = document.querySelector('.se_dot');
+
+
+            hr_dot.style.transform = `rotate(${hoursToDisplay * 30}deg)`;
+            mi_dot.style.transform = `rotate(${minutesToDisplay * 6}deg)`;
+            se_dot.style.transform = `rotate(${secondsToDisplay * 6}deg)`;
+        }
+
+        // run setDate function every seconds 
+        setInterval(setDate, 1000);
+    </script>
+</body>
+
+</html>
